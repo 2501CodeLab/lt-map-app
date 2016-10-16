@@ -10,7 +10,7 @@
 */
 
 
-var cacheName = 'lt-map-app v3';
+var cacheName = 'lt-map-app v0.1';
 var filesToCache = [
   "./script/",
   "./images/lane-1.png",
