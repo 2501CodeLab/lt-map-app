@@ -12,7 +12,8 @@
 
 var cacheName = 'lt-map-app v0.1';
 var filesToCache = [
-  "./script/",
+  "./script/locations.js",
+  "./script/paths.js",
   "./images/lane-1.png",
   "./images/lane-2.png",
   "./images/lane-3.png",
