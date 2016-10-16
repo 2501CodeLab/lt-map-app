@@ -21,7 +21,7 @@ var filesToCache = [
   "https://fonts.gstatic.com/s/materialicons/v18/2fcrYFNaTjcS6g4U3t-Y5RV6cRhDpPC5P4GCEJpqGoc.woff",
   "https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en",
   "https://fonts.googleapis.com/icon?family=Material+Icons",
-  "https://code.getmdl.io/1.2.1/material.teal-red.min.css",
+  //"https://code.getmdl.io/1.2.1/material.teal-red.min.css",
   "https://code.getmdl.io/1.2.1/material.min.js"
   ];
 
