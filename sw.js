@@ -22,7 +22,7 @@ var filesToCache = [
   "https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en",
   "https://fonts.googleapis.com/icon?family=Material+Icons",
   //"https://code.getmdl.io/1.2.1/material.teal-red.min.css",
-  "https://code.getmdl.io/1.2.1/material.min.js"
+  //"https://code.getmdl.io/1.2.1/material.min.js"
   ];
 
 self.addEventListener('install', function(e) {
