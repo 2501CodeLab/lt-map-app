@@ -13,6 +13,8 @@ each hallway (defined in locations.js) is an object whose key is the hallway id
 that object contains keys for each destination hallway;  the value of the that destination ky
 is the set of points (as indicated by stairway ids) from the origin hallway to the destination
 
+objects were used to ease future updates and features
+
 */
 
 var paths={};
@@ -110,6 +112,8 @@ paths.DG.JK = {};
 paths.DG.JK.locations="J";
 paths.DG.HZ = {};
 paths.DG.HZ.locations="H";
+paths.DG.ZZ = {};
+paths.DG.ZZ.locations="H";
 paths.DG.ZO = {};
 paths.DG.ZO.locations="H";
 paths.DG.OM = {};
@@ -269,6 +273,8 @@ paths.OM.JK = {};
 paths.OM.JK.locations="O,H,J";
 paths.OM.HZ = {};
 paths.OM.HZ.locations="O";
+paths.OM.ZZ = {};
+paths.OM.ZZ.locations = "O,Z";
 paths.OM.ZO = {};
 paths.OM.ZO.locations="O";
 paths.OM.OM = {};

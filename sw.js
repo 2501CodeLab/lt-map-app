@@ -10,7 +10,7 @@
 */
 
 
-var cacheName = 'lt-map-app v0.1';
+var cacheName = 'lt-map-app v0.2';
 var filesToCache = [
   "./script/locations.js",
   "./script/paths.js",
@@ -80,7 +80,7 @@ self.addEventListener('fetch', function(e) {
         });
       })
     );
-  } else {
+  } else if (false) {
     /*
      * The app is asking for app shell files. In this scenario the app uses the
      * "Cache, falling back to the network" offline strategy:

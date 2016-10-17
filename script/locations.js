@@ -1,5 +1,7 @@
-// locations provide the x,y coordinates for the line drawing
+/* locations provide the x,y coordinates for the line drawing
 
+
+*/
 
 // locations are defined by their x,y coord and hallway
 var locations = {};
@@ -14,12 +16,12 @@ locations["K"] = {x:30, y:850, hall:"KJ"};
 locations["M"] = {x:712, y:900, hall:"MO"};
 locations["N"] = {x:875, y:850, hall:"NM"};
 locations["O"] = {x:712, y:555, hall:"OZ"};
-locations["Z"] = {x:465, y:555, hall:"ZO"};
-locations["Cafeteria"] = {x:465, y:645, hall:"ZH", floor:1};
+locations["Z"] = {x:465, y:555, hall:"ZZ"};
+locations["Cafeteria"] = {x:465, y:645, hall:"ZZ", floor:1};
 locations["Main Office"] = {x:465, y:235, hall:"BC", floor:1};
 
 
-locations["125"] = {x:712, y:215, hall:"OA"};
+locations["125"] = {x:712, y:495, hall:"OA"};
 locations["148"] = {x:220, y:900, hall:"JH"};
 
 

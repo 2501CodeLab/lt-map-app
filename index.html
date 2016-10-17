@@ -24,13 +24,13 @@
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+    <link rel="icon" sizes="192x192" href="images/ltmap_icon.png">
 
     <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+    <meta name="apple-mobile-web-app-title" content="LT Map">
+    <link rel="apple-touch-icon-precomposed" href="images/ltmap_icon.png">
 
     <!-- Tile icon for Win8 (144x144 + tile color) -->
     <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
@@ -45,7 +45,8 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.teal-red.min.css">
+    <!--<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.teal-red.min.css">-->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue_grey-light_green.min.css" />
     <link rel="stylesheet" href="styles.css">
     <style>
 
@@ -61,57 +62,130 @@
       position:absolute;
       top: 0;
       left:0;
-      border: solid black 2px;
-      width:900px;
+      border: solid black 0;
+      width: 100%;
+      height:1090px;
+      padding:inherit;
     }
+    
+    #divDetail {   
+        position: absolute;
+        /*background-color: #CCCCCC; */
+        width: 100%;
+        overflow-y: auto;
+        top: 0;  
+        left:0;
+        /*bottom:0; */
+        height: 100%;
+        z-index: 1;
+        display: none;
+        /*max-width:936px; */
+        padding: 20px;
+        margin: auto;
+    }
+
     
     #imgMap {
       width: 100%;
-      max-width:1090px;
+      /*max-width:936px;
+      max-height:1090px; */
+      padding: inherit;
+      background-color: OliveDrab ;
     }
     
     #divMap {
+      padding: 0;
       position: relative;
     }
+    
+    
+    @keyframes pulse {
+      0%   { fill: #ff0000 }
+      17%  { fill: #ffff00 }
+      33%  { fill: #00ff00 }
+      50%  { fill: #00ffff }
+      67%  { fill: #0000ff }
+      83%  { fill: #ff00ff }
+      100% { fill: #ff0000 }
+    }
+    
+    .marker {
+      animation: pulse 10s infinite;
+    }
+    
+    .pathMap {
+      animation: infinite;
+    }
+    
     </style>
   </head>
   <body>
-    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
-      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout">
+      <header class="mdl-layout__header">
+      <!--<header class="demo-header mdl-layout__header mdl-layout__header--scroll">-->
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title">Lane Tech Map</span>
           <div class="mdl-layout-spacer"></div>
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a id="show" class="mdl-navigation__link" >Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+          </nav>
+          
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
             <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
               <i class="material-icons">search</i>
             </label>
             <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
+              <input list="locations" class="mdl-textfield__input" type="text" id="search">
+                <datalist id="locations">
+                  <option value="Main Office">
+                  <option value="Cafeteria">
+                  <option value="125">
+                  <option value="148">
+                  <option value="M">
+                </datalist>
+              
               <label class="mdl-textfield__label" for="search">Enter your query...</label>
             </div>
           </div>
         </div>
       </header>
+      
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Title</span>
+        <nav class="mdl-navigation">
+          <a class="locationLink mdl-navigation__link">Cafeteria</a>
+          <a class="locationLink mdl-navigation__link" href="">Main Office</a>
+          <a class="locationLink mdl-navigation__link" href="">148</a>
+          <a class="locationLink mdl-navigation__link" href="">O</a>
+        </nav>
+      </div>
       <div class="demo-ribbon"></div>
       <main class="demo-main mdl-layout__content">
         <div class="demo-container mdl-grid">
           <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
           <div id="divMap" class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--12-col">
             <img id="imgMap" src="./images/lane-1.png">
-            
-            
-            
-            <svg  border="1">
-              <circle cx="10" cy="10" r="5" stroke="green" stroke-width="4" fill="yellow" />
-              <circle cx="225" cy="10" r="5"  fill="red" />
-
-
+            <svg id="svgMap">
+                  <path id="pathMap" d="" 
+                    stroke-width="8" 
+                    stroke="rgb(255,255,0)" 
+                    fill="none"
+                    stroke-dasharray=""
+                    stroke-dashoffset="0.00"/>
             </svg>
-            
 
-            
-            
-
+            <div id="divDetail" class="mdl-color--white mdl-shadow--4dp mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>Technology</h4>
+                Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor laboris eiusmod qui id Lorem esse commodo in. Exercitation aute dolore deserunt culpa consequat elit labore incididunt elit anim.
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">Read our features</a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -127,7 +201,7 @@
         </footer>
       </main>
     </div>
-            
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   <script>
     // Listen for orientation changes
@@ -138,6 +212,8 @@
       console.log(theCSSprop);
     }, false);
     
+    document
+    
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js').then(function(registration) {
         // Registration was successful
@@ -147,9 +223,25 @@
         console.log('ServiceWorker registration failed: ', err);
       });
     }
-    
   </script>
+  <script src="./script/locations.js" async></script>
+  <script src="./script/paths.js" async></script>
+  <script src="./script/app.js" async></script>
+  <script>
+    	$(function(){
 
+    $('#show').on('click',function(){        
+        $('#divDetail').slideToggle('slow');
+    });
 
+    $('#divDetail').on('click',function(){        
+        $('#divDetail').slideToggle('slow');
+    });
+    
+    $('.card-reveal .close').on('click',function(){
+        $('#divDetail').slideToggle('slow');
+    });
+});
+  </script>
   </body>
 </html>
