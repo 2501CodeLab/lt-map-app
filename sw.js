@@ -10,7 +10,7 @@
 */
 
 
-var cacheName = 'lt-map-app v0.2';
+var cacheName = 'lt-map-app v0.3';
 var filesToCache = [
   "./script/locations.js",
   "./script/paths.js",
