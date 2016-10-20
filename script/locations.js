@@ -19,6 +19,7 @@ locations["O"] = {x:712, y:555, hall:"OZ"};
 locations["Z"] = {x:465, y:555, hall:"ZZ"};
 locations["Cafeteria"] = {x:465, y:645, hall:"ZZ", floor:1};
 locations["Main Office"] = {x:465, y:235, hall:"BC", floor:1};
+locations["Auditorium Foyer"] = {x:820, y:35, hall: "AA", floor:1};
 
 
 locations["125"] = {x:712, y:495, hall:"OA"};
